@@ -35,17 +35,12 @@ mkdir laravel_docker_v8/myapp
 
 ```
 
-Depois copie os arquivos da pasta example-project para para pasta myapp que está dentro da pasta laravel_docker_v8
+Depois copie os arquivos da pasta example-project para pasta myapp que está dentro da pasta laravel_docker_v8
 ```sh
 cp -r example-project/* laravel_docker_v8/myapp
 ```
 
-Vamos copiar o arquivo .env.example para .env do myapp
-```sh
-cp -r example-project/.env.example laravel_docker_v8/myapp/.env
-```
-
-Atenção nessa parte, aqui você vai configurar as variáveis de ambiente do arquivo .env
+A configuração das variáveis do  seu arquivo .env.example deve ser parecidas, caso mude o nome do container no seu docker-compose tem que mudar aqui também.
 ```sh
 APP_NAME=NomeDaMinhaAplicacao
 APP_URL=http://localhost:8180
@@ -53,7 +48,7 @@ APP_URL=http://localhost:8180
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
-DB_DATABASE=nome_que_desejar_db
+DB_DATABASE=laravel_aqui_eu_posso_mudar_o_nome
 DB_USERNAME=root
 DB_PASSWORD=root
 
@@ -65,11 +60,17 @@ REDIS_HOST=redis
 REDIS_PASSWORD=null
 REDIS_PORT=6379
 ```
+
+Vamos acessar a pasta laravel_docker_v8 e vamos copiar o arquivo .env.example para .env  para dentro da pasta do myapp
+```sh
+cp -r .env.example myapp/.env
+```
+
+
 ----
 Uma observação importante,  DB_HOST, CACHE_DRIVER, REDIS_HOST todos eles tem que ter o nome igual do seu container que está configurando no docker-compose. Automaticamente o docker faz referência e identifica o IP do container e acrescenta no ambiente de variável do .env, por isso é suficiente só colocar nome do container em vez do ip.
 
 ----
-
 
 No docker-compose, você pode alterar o nome do network de acordo com o nome do seu projeto, para ficar mais fácil
 identificar o projeto que está trabalhando.          
