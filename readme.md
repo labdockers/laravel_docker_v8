@@ -131,5 +131,9 @@ para
 ```
 Não esqueça de atualizar também no arquivo docker/nginx/laravel.conf
 ```sh
-fastcgi_pass myprojetolaravel8:9000;
+fastcgi_pass nomedomeuprojeto:9000;
+```
+para
+```sh
+fastcgi_pass projeto-laravel:9000;
 ```
