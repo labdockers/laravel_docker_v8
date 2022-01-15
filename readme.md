@@ -29,11 +29,10 @@ Clone os Arquivos do Laravel
 ```sh
 git clone https://github.com/laravel/laravel.git example-project
 ```
-
-No docker-compose, você pode alterar o nome do network de acordo com o nome do seu projeto, para ficar mais fácil
-identificar o projeto que está trabalhando.          
+Agora vamos criar uma pasta myapp na pasta laravel_docker_v8
 ```sh
-- laravel-nomedoprojeto
+mkdir laravel_docker_v8/myapp
+
 ```
 
 Depois copie os arquivos da pasta example-project para para pasta myapp que está dentro da pasta laravel_docker_v8
@@ -41,6 +40,11 @@ Depois copie os arquivos da pasta example-project para para pasta myapp que est�
 cp -r example-project/* laravel_docker_v8/myapp
 ```
 
+No docker-compose, você pode alterar o nome do network de acordo com o nome do seu projeto, para ficar mais fácil
+identificar o projeto que está trabalhando.          
+```sh
+- laravel-nomedoprojeto
+```
 
 Outra mudança que você pode fazer no docker-compose, e alterar o nome para de acordo com o nome do seu projeto, veja o exemplo abaixo:
 
