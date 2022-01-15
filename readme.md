@@ -36,6 +36,12 @@ identificar o projeto que está trabalhando.
 - laravel-nomedoprojeto
 ```
 
+Depois copie os arquivos da pasta example-project para para pasta myapp que está dentro da pasta laravel_docker_v8
+```sh
+cp -r example-project/* laravel_docker_v8/myapp
+```
+
+
 Outra mudança que você pode fazer no docker-compose, e alterar o nome para de acordo com o nome do seu projeto, veja o exemplo abaixo:
 
 ```sh
@@ -48,11 +54,6 @@ para
  nome_do_meu_projeto:
         build: 
             args: 
-```
-
-Depois copie os arquivos da pasta example-project para para pasta myapp que está dentro da pasta laravel_docker_v8
-```sh
-cp -r example-project/* laravel_docker_v8/myapp
 ```
 
 Dentro da pasta myapp, crie o arquivo .env
