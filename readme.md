@@ -40,29 +40,9 @@ Depois copie os arquivos da pasta example-project para para pasta myapp que est�
 cp -r example-project/* laravel_docker_v8/myapp
 ```
 
-No docker-compose, você pode alterar o nome do network de acordo com o nome do seu projeto, para ficar mais fácil
-identificar o projeto que está trabalhando.          
+Vamos copiar o arquivo .env.example para .env do myapp
 ```sh
-- laravel-nomedoprojeto
-```
-
-Outra mudança que você pode fazer no docker-compose, e alterar o nome para de acordo com o nome do seu projeto, veja o exemplo abaixo:
-
-```sh
- laravel_8:
-        build: 
-            args: 
-```
-para
-```sh
- nome_do_meu_projeto:
-        build: 
-            args: 
-```
-
-Dentro da pasta myapp, crie o arquivo .env
-```sh
-cp .env.example .env
+cp -r example-project/.env.example laravel_docker_v8/myapp/.env
 ```
 
 Atenção nessa parte, aqui você vai configurar as variáveis de ambiente do arquivo .env
@@ -89,6 +69,29 @@ REDIS_PORT=6379
 Uma observação importante,  DB_HOST, CACHE_DRIVER, REDIS_HOST todos eles tem que ter o nome igual do seu container que está configurando no docker-compose. Automaticamente o docker faz referência e identifica o IP do container e acrescenta no ambiente de variável do .env, por isso é suficiente só colocar nome do container em vez do ip.
 
 ----
+
+
+No docker-compose, você pode alterar o nome do network de acordo com o nome do seu projeto, para ficar mais fácil
+identificar o projeto que está trabalhando.          
+```sh
+- laravel-nomedoprojeto
+```
+
+Outra mudança que você pode fazer no docker-compose, e alterar o nome para de acordo com o nome do seu projeto, veja o exemplo abaixo:
+
+```sh
+ laravel_8:
+        build: 
+            args: 
+```
+para
+```sh
+ nome_do_meu_projeto:
+        build: 
+            args: 
+```
+
+
 Vamos fazer o deploy dos containers do projeto
 ```sh
 docker-compose up -d
