@@ -1,7 +1,7 @@
 version: "3.7"
 services:
     # image project
-    laravel_8:
+    nomedomeuprojeto:
         build: 
             args: 
                 user: wesllycode
@@ -12,12 +12,12 @@ services:
         restart: unless-stopped
         working_dir: /var/www/
         volumes:
-            - ./myapp/:/var/www
+            - ./:/var/www
         depends_on: 
             - redis
             - queue
         networks: 
-            - laravel-nomedoprojeto
+            - laravel-nomedomeuprojeto
     
     # nginx
     nginx:
@@ -26,10 +26,10 @@ services:
         ports: 
             - 8180:80
         volumes: 
-            - ./myapp/:/var/www
+            - ./:/var/www
             - ./docker/nginx/:/etc/nginx/conf.d/
         networks: 
-            - laravel-nomedoprojeto
+            - laravel-nomedomeuprojeto
 
     # db mysql
     mysql:
@@ -45,7 +45,7 @@ services:
         ports: 
             - 3388:3306
         networks: 
-            - laravel-nomedoprojeto
+            - laravel-nomedomeuprojeto
   
     #PHPMYADMIN  Service
     phpmyadmin:
@@ -59,7 +59,7 @@ services:
       ports:
         - 8181:80
       networks:
-        - laravel-nomedoprojeto
+        - laravel-nomedomeuprojeto
 
     # queue
     queue:
@@ -72,18 +72,18 @@ services:
         restart: unless-stopped
         command: "php artisan queue:work"
         volumes: 
-            - ./myapp/:/var/www
+            - ./:/var/www
         depends_on: 
             - redis
         networks: 
-            - laravel-nomedoprojeto
+            - laravel-nomedomeuprojeto
 
     # redis
     redis:
         image: redis:latest
         networks: 
-            - laravel-nomedoprojeto
+            - laravel-nomedomeuprojeto
 
-networks: 
-    laravel-nomedoprojeto:
+networks:
+    laravel-nomedomeuprojeto:
         driver: bridge
