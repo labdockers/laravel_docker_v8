@@ -5,7 +5,11 @@
 [TWITTER](https://twitter.com/wesllycode)
 
 # SOBRE O PROJETO
-- Uma estrutura completa para criar um ambiente no docker para se trabalhar com Laravel
+- Uma estrutura completa para criar um ambiente no docker para se trabalhar com Laravel.
+- Uma observação, que você tem duas maneiras de fazer esse tutorial, optei em criar uma pasta myapp para
+  o código fica mais organizado, mas você pode colocar toda aplicação do laravel junto com arquivos do
+  docker-compose e dockerfile e pode até deletar o arquivo .env.example e modificar as variáveis direto
+  .env
 
 
 # ESTRUTURA
